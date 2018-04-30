@@ -1,0 +1,24 @@
+{
+  "name": "node-js-rest-api-sqlite-db",
+  "version": "1.0.0",
+  "description": "Node.js + Express + REST API + SQLite DB Example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "express": "4.16.3",
+    "sqlite3": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neos21/node-js-rest-api-sqlite-db.git"
+  },
+  "author": "Neo <neos21@gmail.com> (http://neo.s21.xrea.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Neos21/node-js-rest-api-sqlite-db/issues"
+  },
+  "homepage": "https://github.com/Neos21/node-js-rest-api-sqlite-db#readme"
+}
