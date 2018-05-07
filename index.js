@@ -8,6 +8,14 @@ const app = express();
 const db = require('./app/db/db');
 db.init();
 
+// CORS を許可する : https://stackoverflow.com/questions/44914330/method-put-is-not-allowed-by-access-control-allow-methods-in-preflight-response
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  next();
+});
+
 // ポートを指定して待ち受ける
 const port = process.argv[2] || 3000;
 app.listen(port, () => {
