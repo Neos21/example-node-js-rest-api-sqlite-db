@@ -46,28 +46,24 @@ class UsersController {
    * @param res レスポンス
    */
   create(req, res) {
-    console.log('Controller Create', req.body);
     const user = new UserEntity();
     // user.id = req.body.id;
     user.name = req.body.name;
     user.age = req.body.age;
     
     this.userModel.create(user)
-      .then(this.controller.editSuccess(res))
+      .then(this.controller.createSuccess(res))
       .catch(this.controller.editError(res));
   }
   
   /**
-   * 更新する
+   * 登録 or 更新する
    * 
    * @param req リクエスト
    * @param res レスポンス
    */
   update(req, res) {
-    const user = new UserEntity();
-    user.id = req.body.id;
-    user.name = req.body.name;
-    user.age = req.body.age;
+    const user = new UserEntity(req.body.id, req.body.name, req.body.age);
     
     this.userModel.update(user)
       .then(this.controller.editSuccess(res))
@@ -85,7 +81,15 @@ class UsersController {
     
     this.userModel.delete(id)
       .then(this.controller.editSuccess(res))
-      .catch(this.controller.editError(res));
+      .catch((error) => {
+        if(error.errorCode === 21) {
+          // 削除対象がなかった場合は 404
+          return this.controller.deleteError(res)();
+        }
+        else {
+          return this.controller.editError(res)();
+        }
+      });
   }
 }
 

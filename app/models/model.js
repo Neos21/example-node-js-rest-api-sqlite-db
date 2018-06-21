@@ -68,7 +68,7 @@ class Model {
       stmt.run(params, function(error) {
         if(this.changes === 1) {
           // lastID は INSERT 時のみ ID を返す
-          resolve(true);
+          resolve(this.lastID);
         }
         else if(this.changes === 0) {
           reject(new ModelError(21, 'Entity Not Found'));

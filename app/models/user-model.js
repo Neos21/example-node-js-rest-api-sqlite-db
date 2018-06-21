@@ -88,29 +88,35 @@ class UserModel {
       $age : user.age
     };
     
-    return this.model.run(sql, params);
+    return this.model.run(sql, params)
+      .then((id) => {
+        // 登録したデータを返却する
+        return this.findById(id);
+      });
   }
   
   /**
-   * 更新する
+   * 登録 or 更新する
    * 
    * @param user 更新情報を持つ Entity
-   * @return 更新できたら Resolve する
+   * @return 登録 or 更新できたら Resolve する
    */
   update(user) {
     const sql = `
-      UPDATE
-          user
-      SET
-          name = $name,
-          age  = $age
-      WHERE
-          id   = $id
+      REPLACE INTO user (
+          id,
+          name,
+          age
+      ) VALUES (
+          $id,
+          $name,
+          $age
+      )
     `;
     const params = {
+      $id  : user.id,
       $name: user.name,
-      $age : user.age,
-      $id  : user.id
+      $age : user.age
     };
     
     return this.model.run(sql, params);

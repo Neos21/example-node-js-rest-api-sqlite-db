@@ -10,7 +10,7 @@ class Controller {
    */
   findSuccess(res) {
     return (result) => {
-      res.status(200);  // Found
+      res.status(200);  // OK
       res.json(result);
     };
   }
@@ -29,20 +29,46 @@ class Controller {
   }
   
   /**
-   * 更新系の成功時処理
+   * 登録の成功時処理
+   * 
+   * @param res レスポンス
+   * @return レスポンス
+   */
+  createSuccess(res) {
+    return (result) => {
+      res.status(200);
+      res.json(result);
+    };
+  }
+  
+  /**
+   * 削除対象がない場合の失敗時処理
+   * 
+   * @param res レスポンス
+   * @return レスポンス
+   */
+  deleteError(res) {
+    return (error) => {
+      res.status(404);  // Not Found
+      res.json(error);
+    };
+  }
+  
+  /**
+   * 更新・削除の成功時処理
    * 
    * @param res レスポンス
    * @return レスポンス
    */
   editSuccess(res) {
     return (result) => {
-      res.status(201);  // Created・Updated・Deleted
+      res.status(204);  // No Content
       res.json(result);
     };
   }
   
   /**
-   * 更新系の失敗時処理
+   * 登録・更新・削除の失敗時処理
    * 
    * @param res レスポンス
    * @return レスポンス
