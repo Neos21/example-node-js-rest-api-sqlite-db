@@ -75,7 +75,7 @@ node-js-rest-api-sqlite-db/
 
 ## Author
 
-[Neo](http://neo.s21.xrea.com/) ([@Neos21](https://twitter.com/neos21))
+[Neo](http://neo.s21.xrea.com/) ([@Neos21](https://twitter.com/Neos21))
 
 - [GitHub - node-js-rest-api-sqlite-db](https://github.com/Neos21/node-js-rest-api-sqlite-db)
 
