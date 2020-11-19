@@ -6,19 +6,23 @@
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
-    "body-parser": "1.18.2",
-    "express": "4.16.3",
-    "sqlite3": "4.0.0"
-  },
+  "author": "Neo <neos21@gmail.com> (https://neos21.net/)",
+  "license": "MIT",
+  "homepage": "https://github.com/Neos21/node-js-rest-api-sqlite-db#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Neos21/node-js-rest-api-sqlite-db.git"
   },
-  "author": "Neo <neos21@gmail.com> (http://neo.s21.xrea.com/)",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Neos21/node-js-rest-api-sqlite-db/issues"
   },
-  "homepage": "https://github.com/Neos21/node-js-rest-api-sqlite-db#readme"
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/Neos21"
+  },
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "express": "4.16.3",
+    "sqlite3": "4.0.0"
+  }
 }
